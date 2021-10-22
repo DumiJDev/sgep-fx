@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox fillWidth="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="210.0" prefWidth="246.0" spacing="15.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.github.dumijdev.sgepfx.controller.MatriculaController">
+   <children>
+      <JFXComboBox fx:id="jcbAluno" labelFloat="true" prefHeight="25.0" prefWidth="231.0" promptText="Selecione o aluno">
+         <VBox.margin>
+            <Insets top="10.0" />
+         </VBox.margin>
+      </JFXComboBox>
+      <JFXComboBox fx:id="jcbClasse" prefHeight="25.0" prefWidth="230.0" />
+      <JFXTextField fx:id="jtfValor" labelFloat="true" prefHeight="25.0" prefWidth="233.0" promptText="Valor">
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+      </JFXTextField>
+      <JFXComboBox fx:id="jcbTipoDePagamento" disable="true" prefHeight="25.0" prefWidth="226.0" />
+      <JFXButton fx:id="jbtRegistrar" alignment="CENTER" onAction="#handleRegistrar" prefHeight="31.0" prefWidth="234.0" text="Registrar" />
+   </children>
+   <padding>
+      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+   </padding>
+</VBox>

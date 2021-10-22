@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.github.dumijdev.sgepfx.controller.PagamentoController">
+    <children>
+        <HBox fx:id="hbMain" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" spacing="30.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <JFXButton fx:id="jbtMatricula" contentDisplay="TOP" onAction="#handleMatricula" prefHeight="95.0" prefWidth="85.0" style="-fx-background-color: orange; -fx-background-radius: 10;" text="Matrícula">
+                    <graphic>
+                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" />
+                    </graphic>
+                </JFXButton>
+                <JFXButton fx:id="jbtOutro" contentDisplay="TOP" onAction="#handleOutro" prefHeight="95.0" prefWidth="85.0" style="-fx-background-color: orange; -fx-background-radius: 10;" text="Outro" textAlignment="CENTER" wrapText="true">
+                    <graphic>
+                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" />
+                    </graphic>
+                </JFXButton>
+                <JFXButton fx:id="jbtPropina" contentDisplay="TOP" onAction="#handlePropina" prefHeight="95.0" prefWidth="85.0" style="-fx-background-color: orange; -fx-background-radius: 10;" text="Propina">
+                    <graphic>
+                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" />
+                    </graphic>
+                </JFXButton>
+            <JFXButton fx:id="jbtUniforme" contentDisplay="TOP" layoutX="383.0" layoutY="163.0" onAction="#handleUniforme" prefHeight="95.0" prefWidth="85.0" style="-fx-background-color: orange; -fx-background-radius: 10;" text="Uniforme" textAlignment="CENTER" wrapText="true">
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" />
+               </graphic>
+            </JFXButton>
+            <JFXButton fx:id="jbtVoltar" contentDisplay="TOP" layoutX="440.0" layoutY="163.0" onAction="#handleVoltar" prefHeight="95.0" prefWidth="85.0" style="-fx-background-color: orange; -fx-background-radius: 10;" text="Voltar" textAlignment="CENTER" wrapText="true">
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/arrow-back.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            </children>
+        </HBox>
+    </children>
+</AnchorPane>

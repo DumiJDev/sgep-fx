@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" fx:id="apMain" style="-fx-background-radius: 20;"
+            stylesheets="@../styles/global.css" xmlns="http://javafx.com/javafx/11.0.1"
+            fx:controller="org.github.dumijdev.sgepfx.controller.MainController">
+    <children>
+        <AnchorPane prefHeight="616.0" prefWidth="993.0" style="-fx-background-color: white;"
+                    AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                    AnchorPane.topAnchor="0.0">
+            <children>
+                <VBox prefHeight="616.0" prefWidth="82.0" style="-fx-background-radius: 15 0 0 15;"
+                      AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <children>
+                        <Pane prefHeight="79.0" prefWidth="74.0" style="-fx-background-radius: 15 0 15 15;"/>
+                        <JFXButton fx:id="jbtAluno" alignment="CENTER" contentDisplay="TOP" focusTraversable="false"
+                                   onAction="#handleAluno" prefHeight="66.0" prefWidth="82.0" styleClass="cor-principal"
+                                   text="Aluno">
+                            <graphic>
+                                <ImageView fitHeight="25.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../images/aluno.png"/>
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </JFXButton>
+                        <JFXButton fx:id="jbtMatricula" alignment="CENTER" contentDisplay="TOP" focusTraversable="false"
+                                   layoutX="10.0" layoutY="89.0" onAction="#handleMatricula" prefHeight="66.0"
+                                   prefWidth="82.0" styleClass="cor-principal" text="Matricula">
+                            <graphic>
+                                <ImageView fitHeight="25.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../images/matricula.png"/>
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </JFXButton>
+                        <JFXButton fx:id="jbtPagamento" alignment="CENTER" contentDisplay="TOP" focusTraversable="false"
+                                   layoutX="10.0" layoutY="155.0" onAction="#handlePagamento" prefHeight="66.0"
+                                   prefWidth="82.0" styleClass="cor-principal" text="Pagamento">
+                            <graphic>
+                                <ImageView fitHeight="40.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../images/pagamento.png"/>
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </JFXButton>
+                        <JFXButton fx:id="jbtUsuario" alignment="CENTER" contentDisplay="TOP" focusTraversable="false"
+                                   layoutX="10.0" layoutY="221.0" onAction="#handleUsuario" prefHeight="66.0"
+                                   prefWidth="82.0" styleClass="cor-principal" text="Usuário">
+                            <graphic>
+                                <ImageView fitHeight="25.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../images/user.png"/>
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </JFXButton>
+                        <JFXButton fx:id="jbtLogout" alignment="CENTER" contentDisplay="TOP" focusTraversable="false"
+                                   layoutX="10.0" layoutY="290.0" onAction="#handleLogout" prefHeight="66.0"
+                                   prefWidth="82.0" styleClass="cor-principal" text="Sair">
+                            <graphic>
+                                <ImageView fitHeight="25.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../images/logout.png"/>
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </JFXButton>
+                    </children>
+                </VBox>
+                <AnchorPane fx:id="apContainer" layoutX="91.0" layoutY="69.0" prefHeight="531.0" prefWidth="886.0"
+                            style="-fx-background-radius: 10; -fx-border-color: #000; -fx-border-radius: 10;"/>
+                <ImageView fx:id="ivLogo" fitHeight="38.0" fitWidth="34.0" layoutX="91.0" layoutY="21.0"
+                           pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../../../../../../../../oo/Downloads/javafx-sample-dashboard-master/javafx-sample-dashboard-master/src/resources/logo.png"/>
+                    </image>
+                </ImageView>
+                <Label fx:id="lbNomeDaInstituicao" layoutX="134.0" layoutY="29.0" text="Nome da instituição">
+                    <font>
+                        <Font size="13.0"/>
+                    </font>
+                </Label>
+                <JFXButton fx:id="jbtDefinicoes" alignment="CENTER" buttonType="RAISED" focusTraversable="false"
+                           layoutX="868.0" layoutY="21.0" onAction="#handleDefinicoes" prefHeight="34.0"
+                           prefWidth="109.0" styleClass="cor-principal" text="Definições">
+                    <graphic>
+                        <ImageView fitHeight="25.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../images/settings.png"/>
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </JFXButton>
+            </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>

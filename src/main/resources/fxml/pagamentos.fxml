@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXCheckBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="537.0" prefWidth="761.0" stylesheets="@../styles/bootstrapfx.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.github.dumijdev.sgepfx.controller.PagamentoController">
+   <children>
+      <AnchorPane layoutX="6.0" prefHeight="77.0" prefWidth="751.0" style="-fx-background-radius: 10; -fx-border-color: #000; -fx-border-width: 0 0 1 0;" AnchorPane.leftAnchor="4.0" AnchorPane.rightAnchor="4.0">
+         <children>
+            <JFXTextField fx:id="jtfPesquisa" labelFloat="true" layoutX="308.0" layoutY="27.0" onKeyReleased="#handlePesquisa" prefHeight="25.0" prefWidth="205.0" promptText="Digite a sua pesquisa aqui" styleClass="text-primary" />
+            <JFXButton fx:id="jbtNovo" layoutX="651.0" layoutY="27.0" onAction="#handleNovo" prefHeight="30.0" prefWidth="119.0" styleClass="bg-primary" text="Novo" AnchorPane.bottomAnchor="24.0" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="26.0">
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/pagamento.png" />
+                     </image>
+                     <effect>
+                        <InnerShadow color="WHITE" height="157.4" radius="65.5975" width="106.99" />
+                     </effect>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <JFXCheckBox fx:id="jcbCertificado" layoutX="14.0" layoutY="31.0" onAction="#handleCertificados" text="Certificado" />
+            <JFXCheckBox fx:id="jcbPropina" layoutX="102.0" layoutY="31.0" onAction="#handlePropinas" text="Propina" />
+            <JFXCheckBox fx:id="jcbUniforme" layoutX="186.0" layoutY="31.0" onAction="#handleUniformes" text="Uniforme" />
+         </children>
+      </AnchorPane>
+      <TableView fx:id="tvPagamento" layoutX="10.0" layoutY="95.0" prefHeight="432.0" prefWidth="374.0" style="-fx-background-radius: 10; -fx-border-radius: 0 0 10 10;" styleClass="panel-primary" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="95.0">
+         <columns>
+            <TableColumn fx:id="tcNome" prefWidth="75.0" text="Nome" />
+            <TableColumn fx:id="tcTipoDePagamento" prefWidth="75.0" text="Tipo de pagamento" />
+            <TableColumn fx:id="tcValor" prefWidth="75.0" text="Valor" />
+            <TableColumn fx:id="tcDataDePagamento" prefWidth="75.0" text="Data de pagamento" />
+         </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+   </children>
+</AnchorPane>

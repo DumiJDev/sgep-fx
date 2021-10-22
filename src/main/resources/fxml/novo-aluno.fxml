@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+<HBox alignment="CENTER" fillHeight="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="310.0" prefWidth="252.0" stylesheets="@../styles/bootstrapfx.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.github.dumijdev.sgepfx.controller.AlunoController">
+    <children>
+        <VBox fillWidth="false" minWidth="-Infinity" prefHeight="297.0" prefWidth="226.0">
+            <children>
+                <Label prefHeight="15.0" prefWidth="91.0" text="Nome próprio">
+                    <padding>
+                        <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                    </padding>
+                </Label>
+                <JFXTextField fx:id="jtfNomeProprio" prefHeight="28.0" prefWidth="190.0" />
+                <Label layoutX="10.0" layoutY="10.0" prefHeight="15.0" prefWidth="104.0" text="Nome de família">
+                    <padding>
+                        <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                    </padding>
+                </Label>
+                <JFXTextField fx:id="jtfNomeFamilia" layoutX="10.0" layoutY="27.0" prefHeight="28.0" prefWidth="190.0" />
+                <Label layoutX="10.0" layoutY="10.0" prefHeight="15.0" prefWidth="103.0" text="Nome do pai">
+                    <padding>
+                        <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                    </padding>
+                </Label>
+                <JFXTextField fx:id="jtfNomePai" layoutX="10.0" layoutY="27.0" prefHeight="28.0" prefWidth="190.0" />
+                <Label layoutX="10.0" layoutY="94.0" prefHeight="15.0" prefWidth="101.0" text="Nome da mãe">
+                    <padding>
+                        <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                    </padding>
+                </Label>
+                <JFXTextField fx:id="jtfNomeMae" layoutX="10.0" layoutY="111.0" prefHeight="28.0" prefWidth="190.0" />
+                <Label layoutX="10.0" layoutY="136.0" prefHeight="15.0" prefWidth="132.0" text="Data de nascimento" />
+                <JFXDatePicker fx:id="jdpNasc" defaultColor="#54c0e1" prefHeight="28.0" prefWidth="252.0" />
+                <Label layoutX="10.0" layoutY="178.0" prefHeight="15.0" prefWidth="97.0" text="BI">
+                    <padding>
+                        <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                    </padding>
+                </Label>
+                <JFXTextField fx:id="jtfBI" layoutX="10.0" layoutY="195.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="28.0" prefWidth="190.0" />
+                <Pane prefHeight="20.0" prefWidth="226.0" />
+                <HBox alignment="CENTER" prefHeight="40.0" prefWidth="226.0">
+                    <children>
+                        <JFXButton fx:id="jbtRegistrar" onAction="#handleRegistrar" prefHeight="34.0" prefWidth="221.0" styleClass="bg-success" text="Registrar" />
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+    </children>
+</HBox>
