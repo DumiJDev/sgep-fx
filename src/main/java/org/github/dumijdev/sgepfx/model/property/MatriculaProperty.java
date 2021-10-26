@@ -22,59 +22,59 @@ public class MatriculaProperty {
         return id.get();
     }
 
-    public SimpleLongProperty idProperty() {
-        return id;
-    }
-
     public void setId(long id) {
         this.id.set(id);
+    }
+
+    public SimpleLongProperty idProperty() {
+        return id;
     }
 
     public String getNome() {
         return nome.get();
     }
 
-    public SimpleStringProperty nomeProperty() {
-        return nome;
-    }
-
     public void setNome(String nome) {
         this.nome.set(nome);
+    }
+
+    public SimpleStringProperty nomeProperty() {
+        return nome;
     }
 
     public String getClasse() {
         return classe.get();
     }
 
-    public SimpleStringProperty classeProperty() {
-        return classe;
-    }
-
     public void setClasse(String classe) {
         this.classe.set(classe);
+    }
+
+    public SimpleStringProperty classeProperty() {
+        return classe;
     }
 
     public String getValorDoPagamento() {
         return valorDoPagamento.get();
     }
 
-    public SimpleStringProperty valorDoPagamentoProperty() {
-        return valorDoPagamento;
-    }
-
     public void setValorDoPagamento(String valorDoPagamento) {
         this.valorDoPagamento.set(valorDoPagamento);
+    }
+
+    public SimpleStringProperty valorDoPagamentoProperty() {
+        return valorDoPagamento;
     }
 
     public String getDataDePagamento() {
         return dataDePagamento.get();
     }
 
-    public SimpleStringProperty dataDePagamentoProperty() {
-        return dataDePagamento;
-    }
-
     public void setDataDePagamento(String dataDePagamento) {
         this.dataDePagamento.set(dataDePagamento);
+    }
+
+    public SimpleStringProperty dataDePagamentoProperty() {
+        return dataDePagamento;
     }
 }

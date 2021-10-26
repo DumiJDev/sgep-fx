@@ -22,59 +22,59 @@ public class PagamentoProperty {
         return id.get();
     }
 
-    public SimpleLongProperty idProperty() {
-        return id;
-    }
-
     public void setId(long id) {
         this.id.set(id);
+    }
+
+    public SimpleLongProperty idProperty() {
+        return id;
     }
 
     public String getNome() {
         return nome.get();
     }
 
-    public SimpleStringProperty nomeProperty() {
-        return nome;
-    }
-
     public void setNome(String nome) {
         this.nome.set(nome);
+    }
+
+    public SimpleStringProperty nomeProperty() {
+        return nome;
     }
 
     public String getTipoDePagamento() {
         return tipoDePagamento.get();
     }
 
-    public SimpleStringProperty tipoDePagamentoProperty() {
-        return tipoDePagamento;
-    }
-
     public void setTipoDePagamento(String tipoDePagamento) {
         this.tipoDePagamento.set(tipoDePagamento);
+    }
+
+    public SimpleStringProperty tipoDePagamentoProperty() {
+        return tipoDePagamento;
     }
 
     public String getValor() {
         return valor.get();
     }
 
-    public SimpleStringProperty valorProperty() {
-        return valor;
-    }
-
     public void setValor(String valor) {
         this.valor.set(valor);
+    }
+
+    public SimpleStringProperty valorProperty() {
+        return valor;
     }
 
     public String getDataDePagamento() {
         return dataDePagamento.get();
     }
 
-    public SimpleStringProperty dataDePagamentoProperty() {
-        return dataDePagamento;
-    }
-
     public void setDataDePagamento(String dataDePagamento) {
         this.dataDePagamento.set(dataDePagamento);
+    }
+
+    public SimpleStringProperty dataDePagamentoProperty() {
+        return dataDePagamento;
     }
 }

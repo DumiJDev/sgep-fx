@@ -6,10 +6,8 @@ import java.time.LocalDate;
 
 @MappedSuperclass
 public abstract class Pessoa {
-    @Column(name = "nome_proprio", nullable = false)
-    protected String nomeProprio;
-    @Column(name = "nome_de_familia", nullable = false)
-    protected String nomeDeFamilia;
+    @Column(name = "nome", nullable = false)
+    protected String nome;
     @Column(name = "data_de_nascimento", nullable = false)
     protected LocalDate dataDeNascimento;
     @Column(name = "nome_do_pai")
@@ -19,20 +17,12 @@ public abstract class Pessoa {
     @Column(name = "bi", nullable = false)
     protected String bi;
 
-    public String getNomeProprio() {
-        return nomeProprio;
+    public String getNome() {
+        return nome;
     }
 
-    public void setNomeProprio(String nomeProprio) {
-        this.nomeProprio = nomeProprio;
-    }
-
-    public String getNomeDeFamilia() {
-        return nomeDeFamilia;
-    }
-
-    public void setNomeDeFamilia(String nomeDeFamilia) {
-        this.nomeDeFamilia = nomeDeFamilia;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public LocalDate getDataDeNascimento() {
@@ -65,9 +55,5 @@ public abstract class Pessoa {
 
     public void setBi(String bi) {
         this.bi = bi;
-    }
-
-    public String nomeCompleto() {
-        return nomeProprio + ' ' + nomeDeFamilia;
     }
 }

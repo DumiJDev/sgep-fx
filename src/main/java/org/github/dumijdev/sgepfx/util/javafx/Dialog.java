@@ -1,24 +1,26 @@
-package org.github.dumijdev.sgepfx.util;
+package org.github.dumijdev.sgepfx.util.javafx;
 
 import javafx.scene.control.Alert;
 
+import java.util.Objects;
+
 public class Dialog {
-    private static String cab = "Mensagem: ";
+    private static final String cab = "Mensagem: ";
 
     public static boolean aviso(String titulo, String mensagem) {
         var alert = new Alert(Alert.AlertType.WARNING);
         alert.setTitle(titulo);
         alert.setHeaderText("AVISO!!!");
         alert.setContentText(mensagem);
-        return alert.showAndWait().get().getButtonData().isDefaultButton();
+        return Objects.requireNonNull(alert.showAndWait().orElse(null)).getButtonData().isDefaultButton();
     }
 
-    public static boolean erro(String titulo, String mensagem) {
+    public static void erro(String titulo, String mensagem) {
         var alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle(titulo);
         alert.setHeaderText("ERRO!!!");
         alert.setContentText(mensagem);
-        return alert.showAndWait().get().getButtonData().isDefaultButton();
+        alert.showAndWait();
     }
 
     public static boolean informacao(String titulo, String mensagem) {
@@ -27,6 +29,6 @@ public class Dialog {
         alert.setHeaderText("Informação");
         alert.setContentText(mensagem);
 
-        return alert.showAndWait().get().getButtonData().isDefaultButton();
+        return Objects.requireNonNull(alert.showAndWait().orElse(null)).getButtonData().isDefaultButton();
     }
 }

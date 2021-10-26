@@ -4,7 +4,7 @@
     <option name="defaultUnitInitialized" value="true" />
     <option name="createEntityParentFqns">
       <list>
-        <option value="" />
+        <option value="org.github.dumijdev.sgepfx.model.Pessoa" />
       </list>
     </option>
   </component>

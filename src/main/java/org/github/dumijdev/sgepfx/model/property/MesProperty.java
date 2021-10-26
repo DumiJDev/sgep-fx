@@ -18,12 +18,12 @@ public class MesProperty {
         return valor.get();
     }
 
-    public SimpleStringProperty valorProperty() {
-        return valor;
-    }
-
     public void setValor(String valor) {
         this.valor.set(valor);
+    }
+
+    public SimpleStringProperty valorProperty() {
+        return valor;
     }
 
     @Override

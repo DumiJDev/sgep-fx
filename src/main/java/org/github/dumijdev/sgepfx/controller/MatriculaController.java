@@ -1,6 +1,9 @@
 package org.github.dumijdev.sgepfx.controller;
 
-import com.jfoenix.controls.*;
+import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXComboBox;
+import com.jfoenix.controls.JFXRadioButton;
+import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -23,7 +26,7 @@ import org.github.dumijdev.sgepfx.model.property.MatriculaProperty;
 import org.github.dumijdev.sgepfx.model.property.TipoDePagamentoProperty;
 import org.github.dumijdev.sgepfx.repository.MatriculaRepository;
 import org.github.dumijdev.sgepfx.util.Converte;
-import org.github.dumijdev.sgepfx.util.Dialog;
+import org.github.dumijdev.sgepfx.util.javafx.Dialog;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
@@ -99,7 +102,7 @@ public class MatriculaController implements Initializable {
 
         Dialog.informacao("Matricula",
                 String.format("Matricula do aluno %s para %dª classe feita com sucesso!",
-                        m.getAluno().getNomeProprio(), m.getClasse()));
+                        m.getAluno().getNome(), m.getClasse()));
         st.close();
         aberto = false;
 
@@ -133,16 +136,16 @@ public class MatriculaController implements Initializable {
     @FXML
     void handlePesquisaPorTexto(KeyEvent event) {
         if (jtfPesquisa.getText().isEmpty()) {
-                atualizaTabela();
+            atualizaTabela();
         } else if (jrbNome.isSelected()) {
-            var aux = mr.buscaPeloNomeProprio(jtfPesquisa.getText());
+            var aux = mr.buscaPeloNome(jtfPesquisa.getText());
 
             var resultados = aux.stream()
                     .map(Converte::converte).collect(Collectors.toList());
 
             tvMatriculasGlobal.getItems().clear();
             tvMatriculasGlobal.getItems().addAll(resultados);
-        } else if (jrbClasse.isSelected()){
+        } else if (jrbClasse.isSelected()) {
             var aux = mr.buscaPelaClasse(Integer.parseInt(jtfPesquisa.getText()));
 
             var resultados = aux.stream()

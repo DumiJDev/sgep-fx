@@ -12,7 +12,8 @@ public class MatriculaBuilder {
     private LocalDate data;
     private Pagamento pagamento;
 
-    private MatriculaBuilder(){}
+    private MatriculaBuilder() {
+    }
 
     public static MatriculaBuilder novaInstancia() {
         return new MatriculaBuilder();

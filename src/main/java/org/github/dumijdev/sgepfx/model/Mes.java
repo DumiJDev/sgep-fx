@@ -11,20 +11,20 @@ public enum Mes {
 
     private final Integer mesInt;
 
-    public String getMes() {
-        return mes;
-    }
-
-    public Integer getMesInt() {
-        return mesInt;
-    }
-
     Mes(String mes, Integer mesInt) {
         this.mes = mes;
         this.mesInt = mesInt;
     }
 
     public static Mes parseOf(String mes) {
-        return Arrays.stream(values()).filter(mes1 -> mes1.mes.equals(mes)).findAny().get();
+        return Arrays.stream(values()).filter(mes1 -> mes1.mes.equals(mes)).findAny().orElse(null);
+    }
+
+    public String getMes() {
+        return mes;
+    }
+
+    public Integer getMesInt() {
+        return mesInt;
     }
 }

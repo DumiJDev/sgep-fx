@@ -43,24 +43,9 @@ public class SQLiteDialect extends Dialect {
         return true;
     }
 
-  /*
-  public boolean supportsInsertSelectIdentity() {
-    return true; // As specify in NHibernate dialect
-  }
-  */
-
     public boolean hasDataTypeInIdentityColumn() {
         return false; // As specify in NHibernate dialect
     }
-
-  /*
-  public String appendIdentitySelectToInsert(String insertString) {
-    return new StringBuffer(insertString.length()+30). // As specify in NHibernate dialect
-      append(insertString).
-      append("; ").append(getIdentitySelectString()).
-      toString();
-  }
-  */
 
     public String getIdentityColumnString() {
         // return "integer primary key autoincrement";
@@ -69,15 +54,6 @@ public class SQLiteDialect extends Dialect {
 
     public String getIdentitySelectString() {
         return "select last_insert_rowid()";
-    }
-
-    public boolean supportsLimit() {
-        return true;
-    }
-
-    protected String getLimitString(String query, boolean hasOffset) {
-        return query +
-                (hasOffset ? " limit ?, ?" : " limit ?");
     }
 
     public boolean supportsTemporaryTables() {
@@ -148,10 +124,5 @@ public class SQLiteDialect extends Dialect {
 
     public boolean supportsCascadeDelete() {
         return false;
-    }
-
-    @Override
-    public boolean bindLimitParametersInReverseOrder() {
-        return true;
     }
 }

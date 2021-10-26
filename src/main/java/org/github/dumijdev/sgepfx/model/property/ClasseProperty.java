@@ -15,12 +15,12 @@ public class ClasseProperty {
         return valor.get();
     }
 
-    public SimpleIntegerProperty valorProperty() {
-        return valor;
-    }
-
     public void setValor(int valor) {
         this.valor.set(valor);
+    }
+
+    public SimpleIntegerProperty valorProperty() {
+        return valor;
     }
 
     @Override

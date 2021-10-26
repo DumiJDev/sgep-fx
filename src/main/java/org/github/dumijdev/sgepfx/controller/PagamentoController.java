@@ -1,6 +1,9 @@
 package org.github.dumijdev.sgepfx.controller;
 
-import com.jfoenix.controls.*;
+import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXCheckBox;
+import com.jfoenix.controls.JFXComboBox;
+import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -9,27 +12,19 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import org.github.dumijdev.sgepfx.SGESpringFX;
-import org.github.dumijdev.sgepfx.model.Aluno;
-import org.github.dumijdev.sgepfx.model.Mes;
-import org.github.dumijdev.sgepfx.model.Pagamento;
-import org.github.dumijdev.sgepfx.model.TipoDePagamento;
+import org.github.dumijdev.sgepfx.model.*;
 import org.github.dumijdev.sgepfx.model.builder.PagamentoBuilder;
 import org.github.dumijdev.sgepfx.model.builder.PropinaBuilder;
-import org.github.dumijdev.sgepfx.model.property.AlunoProperty;
-import org.github.dumijdev.sgepfx.model.property.ClasseProperty;
-import org.github.dumijdev.sgepfx.model.property.MesProperty;
-import org.github.dumijdev.sgepfx.model.property.PagamentoProperty;
+import org.github.dumijdev.sgepfx.model.property.*;
 import org.github.dumijdev.sgepfx.repository.PagamentoRepository;
 import org.github.dumijdev.sgepfx.repository.PropinaRepository;
-import org.github.dumijdev.sgepfx.util.Converte;
-import org.github.dumijdev.sgepfx.util.Dialog;
+import org.github.dumijdev.sgepfx.util.javafx.Dialog;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
@@ -49,92 +44,51 @@ public class PagamentoController implements Initializable {
 
     //Minhas variáveis
     private static AnchorPane apContainerGlobal;
-
+    private static PagamentoRepository pr;
+    private static TableView<PagamentoProperty> tvPagamentoGlobal;
+    private static Stage s1;
+    private static boolean aberto;
+    private static PropinaRepository pr1;
     @FXML // fx:id="apContainer"
     private AnchorPane apContainer; // Value injected by FXMLLoader
-
     @FXML // fx:id="hbMain"
     private HBox hbMain; // Value injected by FXMLLoader
-
     @FXML // fx:id="jbtMatricula"
     private JFXButton jbtMatricula; // Value injected by FXMLLoader
-
-    @FXML // fx:id="jbtOutro"
-    private JFXButton jbtOutro; // Value injected by FXMLLoader
-
+    @FXML // fx:id="jbtGeral"
+    private JFXButton jbtGeral; // Value injected by FXMLLoader
+    @FXML // fx:id="jbtAtualizaTabela"
+    private JFXButton jbtAtualizaTabela; // Value injected by FXMLLoader
     @FXML // fx:id="jbtPropina"
     private JFXButton jbtPropina; // Value injected by FXMLLoader
-
     @FXML // fx:id="jbtUniforme"
     private JFXButton jbtUniforme; // Value injected by FXMLLoader
-
     @FXML // fx:id="jbtVoltar"
     private JFXButton jbtVoltar; // Value injected by FXMLLoader
-
     //Pagamentos
     @FXML // fx:id="jtfPesquisa"
     private JFXTextField jtfPesquisa; // Value injected by FXMLLoader
-
     @FXML // fx:id="jbtNovo"
     private JFXButton jbtNovo; // Value injected by FXMLLoader
-
     @FXML // fx:id="jcbCertificado"
     private JFXCheckBox jcbCertificado; // Value injected by FXMLLoader
-
+    @FXML // fx:id="jcbMatricula"
+    private JFXCheckBox jcbMatricula; // Value injected by FXMLLoader
     @FXML // fx:id="jcbPropina"
     private JFXCheckBox jcbPropina; // Value injected by FXMLLoader
-
     @FXML // fx:id="jcbUniforme"
     private JFXCheckBox jcbUniforme; // Value injected by FXMLLoader
-
     @FXML // fx:id="tvPagamento"
     private TableView<PagamentoProperty> tvPagamento; // Value injected by FXMLLoader
-
     @FXML // fx:id="tcNome"
     private TableColumn<PagamentoProperty, String> tcNome; // Value injected by FXMLLoader
-
     @FXML // fx:id="tcTipoDePagamento"
     private TableColumn<PagamentoProperty, String> tcTipoDePagamento; // Value injected by FXMLLoader
-
     @FXML // fx:id="tcValor"
     private TableColumn<PagamentoProperty, String> tcValor; // Value injected by FXMLLoader
-
     @FXML // fx:id="tcDataDePagamento"
     private TableColumn<PagamentoProperty, String> tcDataDePagamento; // Value injected by FXMLLoader
-    private static PagamentoRepository pr;
-    private static TableView<PagamentoProperty> tvPagamentoGlobal;
-
-    @FXML
-    void handleNovo(ActionEvent event) {
-        try {
-            var p = (Parent) FXMLLoader.load(getClass().getResource("/fxml/pagamento.fxml"));
-            telaPrincipal(p);
-        } catch (IOException e) {
-            Dialog.erro("Erro", e.getMessage());
-        }
-    }
-
-    @FXML
-    void handleCertificados(ActionEvent event) {
-
-    }
-
-    @FXML
-    void handlePesquisa(KeyEvent event) {
-
-    }
-
-    @FXML
-    void handlePropinas(ActionEvent event) {
-
-    }
-
-    @FXML
-    void handleUniformes(ActionEvent event) {
-
-    }
     //Pagamentos fim
-
     //Propina
     @FXML // fx:id="jcbAlunoPropina"
     private JFXComboBox<AlunoProperty> jcbAlunoPropina; // Value injected by FXMLLoader
@@ -150,9 +104,70 @@ public class PagamentoController implements Initializable {
 
     @FXML // fx:id="jbtRegistrarPropina"
     private JFXButton jbtRegistrarPropina; // Value injected by FXMLLoader
-    private static Stage s1;
-    private static boolean aberto;
-    private static PropinaRepository pr1;
+    //Pagamento geral
+    @FXML // fx:id="jcbAlunoGeral"
+    private JFXComboBox<AlunoProperty> jcbAlunoGeral; // Value injected by FXMLLoader
+    @FXML // fx:id="jcbTipoDePagamentoGeral"
+    private JFXComboBox<TipoDePagamentoProperty> jcbTipoDePagamentoGeral; // Value injected by FXMLLoader
+    @FXML // fx:id="jtfValorPropina"
+    private JFXTextField jtfValorGeral; // Value injected by FXMLLoader
+    @FXML // fx:id="jbtRegistrarGeral"
+    private JFXButton jbtRegistrarGeral; // Value injected by FXMLLoader
+    //Propina fim
+
+    @FXML
+    void handleAtualiza(ActionEvent event) {
+        atualizaTabela();
+    }
+
+    @FXML
+    void handleNovo(ActionEvent event) {
+        try {
+            var p = (Parent) FXMLLoader.load(getClass().getResource("/fxml/pagamento.fxml"));
+            telaPrincipal(p);
+        } catch (IOException e) {
+            Dialog.erro("Erro", e.getMessage());
+        }
+    }
+
+    @FXML
+    void handlePesquisa(KeyEvent event) {
+        tvPagamentoGlobal.getItems().clear();
+        if (jcbCertificado.isSelected())
+            atualizaTabela(jtfPesquisa.getText(), TipoDePagamento.CERTIFICADO);
+
+        if (jcbMatricula.isSelected())
+            atualizaTabela(jtfPesquisa.getText(), TipoDePagamento.MATRICULA);
+
+        if (jcbPropina.isSelected())
+            atualizaTabela(jtfPesquisa.getText(), TipoDePagamento.PROPINA);
+
+        if (jcbUniforme.isSelected())
+            atualizaTabela(jtfPesquisa.getText(), TipoDePagamento.UNIFORME);
+
+        if (!(jcbCertificado.isSelected() || jcbMatricula.isSelected() || jcbPropina.isSelected() || jcbUniforme.isSelected()))
+            atualizaTabela(jtfPesquisa.getText(), null);
+    }
+
+    @FXML
+    void handleBusca(ActionEvent event) {
+        tvPagamentoGlobal.getItems().clear();
+        if (jcbCertificado.isSelected())
+            atualizaTabela(jtfPesquisa.getText(), TipoDePagamento.CERTIFICADO);
+
+        if (jcbMatricula.isSelected())
+            atualizaTabela(jtfPesquisa.getText(), TipoDePagamento.MATRICULA);
+
+        if (jcbPropina.isSelected())
+            atualizaTabela(jtfPesquisa.getText(), TipoDePagamento.PROPINA);
+
+        if (jcbUniforme.isSelected())
+            atualizaTabela(jtfPesquisa.getText(), TipoDePagamento.UNIFORME);
+
+        if (!(jcbCertificado.isSelected() || jcbMatricula.isSelected() || jcbPropina.isSelected() || jcbUniforme.isSelected()))
+            atualizaTabela(jtfPesquisa.getText(), null);
+
+    }
 
     @FXML
     void handleRegistrarPropina(ActionEvent event) {
@@ -170,20 +185,44 @@ public class PagamentoController implements Initializable {
                 ).constroi());
         Dialog.informacao("Propina",
                 String.format("Propina do(a) %s para %dª classe feita com sucesso!",
-                        p.getAluno().getNomeProprio(), p.getClasse()));
+                        p.getAluno().getNome(), p.getClasse()));
         s1.close();
         aberto = false;
     }
-    //Propina fim
 
     @FXML
-    void handleMatricula(ActionEvent event) {
-
+    void handleRegistrarGeral(ActionEvent event) {
+        var p = pr.save(
+                PagamentoBuilder.novaInstancia()
+                        .comAluno(converte(jcbAlunoGeral.getSelectionModel().getSelectedItem()))
+                        .comDataDePagamento(LocalDateTime.now())
+                        .comTipoDePagamento(Arrays.stream(TipoDePagamento.values()).filter(tipoDePagamento -> tipoDePagamento.getS().equalsIgnoreCase(jcbTipoDePagamentoGeral.getSelectionModel().getSelectedItem().getTipo())).findFirst().orElse(null))
+                        .comValorPago(new BigDecimal(jtfValorGeral.getText()))
+                        .constroi());
+        Dialog.informacao("Propina",
+                String.format("Pagamento do(a) %s para %s feita com sucesso!",
+                        p.getAluno().getNome(), p.getTipoDePagamento().getS()));
+        s1.close();
+        aberto = false;
     }
+    //Pagamento geral fim
 
     @FXML
-    void handleOutro(ActionEvent event) {
-
+    void handleGeral(ActionEvent event) {
+        if (!aberto)
+            try {
+                Parent p = FXMLLoader.load(getClass().getResource("/fxml/novo-pagamento.fxml"));
+                Scene s = new Scene(p);
+                s1 = new Stage();
+                s1.setTitle("Pagamento Geral");
+                s1.setResizable(false);
+                s1.setOnCloseRequest(event1 -> aberto = false);
+                s1.setScene(s);
+                s1.show();
+            } catch (IOException e) {
+                Dialog.erro("Erro", e.getMessage());
+                e.printStackTrace();
+            }
     }
 
     @FXML
@@ -200,11 +239,6 @@ public class PagamentoController implements Initializable {
         } catch (IOException e) {
             Dialog.erro("Erro", e.getMessage());
         }
-    }
-
-    @FXML
-    void handleUniforme(ActionEvent event) {
-
     }
 
     @FXML
@@ -239,6 +273,28 @@ public class PagamentoController implements Initializable {
         if (jcbAlunoPropina != null) {
             var ar = SGESpringFX.getAR();
             jcbAlunoPropina.getItems().addAll(converteTodos(ar.buscaTodos().toArray(Aluno[]::new)));
+            jcbAlunoPropina.setOnMouseClicked(event -> {
+             jcbClassePropina.getItems().clear();
+             jcbClassePropina.getItems()
+             .addAll(
+             SGESpringFX.getMR()
+             .buscaPeloNome(
+             jcbAlunoPropina
+             .getEditor()
+             .getText())
+             .stream().map(Matricula::getClasse)
+             .collect(Collectors.toList())
+             .stream().map(ClasseProperty::new)
+             .collect(Collectors.toList()));
+             });
+            jcbAlunoPropina.setOnKeyReleased(event -> {
+                jcbAlunoPropina.getItems().clear();
+                jcbAlunoPropina.getItems()
+                        .addAll(converteTodos(ar.buscaPeloNomeContendo(
+                                jcbAlunoPropina
+                                        .getEditor()
+                                        .getText()).toArray(Aluno[]::new)));
+            });
             jcbClassePropina.getItems()
                     .addAll(IntStream.rangeClosed(1, 9)
                             .mapToObj(ClasseProperty::new).collect(Collectors.toList()));
@@ -257,6 +313,24 @@ public class PagamentoController implements Initializable {
             tcValor.setCellValueFactory(new PropertyValueFactory<>("valor"));
             atualizaTabela();
         }
+
+        if (jcbAlunoGeral != null) {
+            var ar = SGESpringFX.getAR();
+            jcbAlunoGeral.getItems().addAll(converteTodos(ar.buscaTodos().toArray(Aluno[]::new)));
+            jcbAlunoGeral.setOnKeyReleased(event -> {
+                jcbAlunoGeral.getItems().clear();
+                jcbAlunoGeral.getItems()
+                        .addAll(converteTodos(ar.buscaPeloNomeContendo(
+                                jcbAlunoGeral
+                                        .getEditor()
+                                        .getText()).toArray(Aluno[]::new)));
+            });
+            jcbAlunoGeral.getSelectionModel().selectFirst();
+            jcbTipoDePagamentoGeral.getItems()
+                    .addAll(converteTodos(
+                            new TipoDePagamento[]{TipoDePagamento.MATRICULA, TipoDePagamento.PROPINA},
+                            TipoDePagamento.values()).toArray(TipoDePagamentoProperty[]::new));
+        }
     }
 
     private void telaPrincipal(Parent p) {
@@ -272,6 +346,16 @@ public class PagamentoController implements Initializable {
     private void atualizaTabela() {
         tvPagamentoGlobal.getItems().clear();
         tvPagamentoGlobal.getItems()
-                .addAll(Converte.converteTodos(pr.buscaTodos().toArray(Pagamento[]::new)));
+                .addAll(converteTodos(pr.buscaTodos().toArray(Pagamento[]::new)));
+    }
+
+    private void atualizaTabela(String nome, TipoDePagamento tipo) {
+        if (tipo == null)
+            tvPagamentoGlobal.getItems()
+                    .addAll(converteTodos(pr.buscaPeloNome(nome).toArray(Pagamento[]::new)));
+        else
+            tvPagamentoGlobal.getItems()
+                    .addAll(converteTodos(pr.buscaPeloNomeETipoDePagamento(nome, tipo)
+                            .toArray(Pagamento[]::new)));
     }
 }

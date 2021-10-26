@@ -31,7 +31,7 @@ public class StageInitializer implements ApplicationListener<StageReadyEvent> {
     public void onApplicationEvent(StageReadyEvent stageReadyEvent) {
         try {
             Stage stage = stageReadyEvent.getStage();
-            ClassPathResource fxml = new ClassPathResource("/fxml/main2.fxml");
+            ClassPathResource fxml = new ClassPathResource("/fxml/login.fxml");
             FXMLLoader fxmlLoader = new FXMLLoader(fxml.getURL());
             fxmlLoader.setControllerFactory(this.applicationContext::getBean);
             Parent root = fxmlLoader.load();

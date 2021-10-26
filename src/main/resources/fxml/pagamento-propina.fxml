@@ -1,22 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXButton?>
-<?import com.jfoenix.controls.JFXComboBox?>
-<?import com.jfoenix.controls.JFXTextField?>
+
+<?import com.jfoenix.controls.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.layout.VBox?>
-
-
-<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="219.0" prefWidth="290.0" spacing="15.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.github.dumijdev.sgepfx.controller.PagamentoController">
-   <children>
-      <JFXComboBox fx:id="jcbAlunoPropina" prefHeight="25.0" prefWidth="279.0">
-         <VBox.margin>
-            <Insets top="10.0" />
-         </VBox.margin>
-      </JFXComboBox>
-      <JFXComboBox fx:id="jcbClassePropina" labelFloat="true" prefHeight="25.0" prefWidth="279.0" promptText="Escolhe a classe" />
-      <JFXComboBox fx:id="jcbMesPropina" labelFloat="true" prefHeight="25.0" prefWidth="278.0" promptText="Escolhe o mes" />
-      <JFXTextField fx:id="jtfValorPropina" labelFloat="true" promptText="  Valor a pagar" />
-      <JFXButton fx:id="jbtRegistrarPropina" onAction="#handleRegistrarPropina" prefHeight="33.0" prefWidth="287.0" text="Registrar" />
-   </children>
+<VBox xmlns:fx="http://javafx.com/fxml/1" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+      minWidth="-Infinity" prefHeight="219.0" prefWidth="290.0" spacing="15.0"
+      xmlns="http://javafx.com/javafx/11.0.1" fx:controller="org.github.dumijdev.sgepfx.controller.PagamentoController">
+    <children>
+        <JFXComboBox fx:id="jcbAlunoPropina" prefHeight="25.0" prefWidth="279.0">
+            <VBox.margin>
+                <Insets top="10.0"/>
+            </VBox.margin>
+        </JFXComboBox>
+        <JFXComboBox fx:id="jcbClassePropina" labelFloat="true" prefHeight="25.0" prefWidth="279.0"
+                     promptText="Escolhe a classe"/>
+        <JFXComboBox fx:id="jcbMesPropina" labelFloat="true" prefHeight="25.0" prefWidth="278.0"
+                     promptText="Escolhe o mes"/>
+        <JFXTextField fx:id="jtfValorPropina" labelFloat="true" promptText="  Valor a pagar"/>
+        <JFXButton fx:id="jbtRegistrarPropina" onAction="#handleRegistrarPropina" prefHeight="33.0" prefWidth="287.0"
+                   text="Registrar"/>
+    </children>
 </VBox>

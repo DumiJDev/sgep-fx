@@ -16,12 +16,12 @@ public class TipoDePagamentoProperty {
         return tipo.get();
     }
 
-    public SimpleStringProperty tipoProperty() {
-        return tipo;
-    }
-
     public void setTipo(String tipo) {
         this.tipo.set(tipo);
+    }
+
+    public SimpleStringProperty tipoProperty() {
+        return tipo;
     }
 
     @Override
@@ -39,6 +39,6 @@ public class TipoDePagamentoProperty {
 
     @Override
     public String toString() {
-        return tipo.get() ;
+        return tipo.get();
     }
 }

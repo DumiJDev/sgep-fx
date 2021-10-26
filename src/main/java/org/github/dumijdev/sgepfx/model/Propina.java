@@ -25,15 +25,15 @@ public class Propina {
     @Column(name = "classe")
     private Integer classe;
 
+    public Propina() {
+    }
+
     public Integer getClasse() {
         return classe;
     }
 
     public void setClasse(Integer classe) {
         this.classe = classe;
-    }
-
-    public Propina() {
     }
 
     public Mes getMes() {

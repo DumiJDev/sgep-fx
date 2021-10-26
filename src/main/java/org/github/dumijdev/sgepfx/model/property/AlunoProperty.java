@@ -5,14 +5,11 @@ import javafx.beans.property.SimpleLongProperty;
 import javafx.beans.property.SimpleStringProperty;
 
 public class AlunoProperty {
-    private SimpleLongProperty id;
-    private SimpleStringProperty nome;
-    private SimpleIntegerProperty idade;
-    private SimpleStringProperty pagamento;
-    private SimpleStringProperty dataDeInscricao;
-
-    public AlunoProperty() {
-    }
+    private final SimpleLongProperty id;
+    private final SimpleStringProperty nome;
+    private final SimpleIntegerProperty idade;
+    private final SimpleStringProperty pagamento;
+    private final SimpleStringProperty dataDeInscricao;
 
     public AlunoProperty(Long id, String nome, Integer idade, String pagamento, String dataDeInscricao) {
         this.id = new SimpleLongProperty(id);

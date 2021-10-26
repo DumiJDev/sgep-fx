@@ -5,8 +5,7 @@ import org.github.dumijdev.sgepfx.model.Aluno;
 import java.time.LocalDate;
 
 public class AlunoBuilder {
-    private String nomeProprio;
-    private String nomeDeFamilia;
+    private String nome;
     private LocalDate dataDeNascimento;
     private String nomeDoPai;
     private String nomeDaMae;
@@ -25,13 +24,8 @@ public class AlunoBuilder {
         return this;
     }
 
-    public AlunoBuilder comNomeProprio(String nomeProprio) {
-        this.nomeProprio = nomeProprio;
-        return this;
-    }
-
-    public AlunoBuilder comNomeDeFamilia(String nomeDeFamilia) {
-        this.nomeDeFamilia = nomeDeFamilia;
+    public AlunoBuilder comNome(String nome) {
+        this.nome = nome;
         return this;
     }
 
@@ -61,9 +55,8 @@ public class AlunoBuilder {
         aluno.setBi(bi);
         aluno.setDataDeNascimento(dataDeNascimento);
         aluno.setNomeDaMae(nomeDaMae);
-        aluno.setNomeDeFamilia(nomeDeFamilia);
         aluno.setNomeDoPai(nomeDoPai);
-        aluno.setNomeProprio(nomeProprio);
+        aluno.setNome(nome);
 
         return aluno;
     }

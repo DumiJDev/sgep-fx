@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.VBox?>
+<VBox xmlns:fx="http://javafx.com/fxml/1" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+      minWidth="-Infinity" prefHeight="165.0" prefWidth="266.0" spacing="15.0"
+      xmlns="http://javafx.com/javafx/11.0.1" fx:controller="org.github.dumijdev.sgepfx.controller.PagamentoController">
+    <children>
+        <JFXComboBox fx:id="jcbAlunoGeral" prefHeight="25.0" prefWidth="279.0">
+            <VBox.margin>
+                <Insets top="10.0"/>
+            </VBox.margin>
+        </JFXComboBox>
+        <JFXComboBox fx:id="jcbTipoDePagamentoGeral" labelFloat="true" prefHeight="25.0" prefWidth="278.0"
+                     promptText="Escolhe o tipo de pagamento"/>
+        <JFXTextField fx:id="jtfValorGeral" labelFloat="true" promptText="  Valor a pagar"/>
+        <JFXButton fx:id="jbtRegistrarGeral" onAction="#handleRegistrarGeral" prefHeight="33.0" prefWidth="287.0"
+                   text="Registrar"/>
+    </children>
+</VBox>

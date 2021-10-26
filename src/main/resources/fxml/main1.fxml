@@ -18,11 +18,11 @@
                     stylesheets="@../../../../../HVendas/src/main/resources/assets/css/global-escuro.css"
                     AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
-                <ScrollPane hbarPolicy="NEVER" layoutY="190.0"  vbarPolicy="NEVER"
+                <ScrollPane hbarPolicy="NEVER" layoutY="190.0" vbarPolicy="NEVER"
                             AnchorPane.bottomAnchor="70.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
                             AnchorPane.topAnchor="190.0" fx:id="xxx">
                     <content>
-                        <VBox fx:id="vbContainerMenu"  prefHeight="378.0" prefWidth="286.0">
+                        <VBox fx:id="vbContainerMenu" prefHeight="378.0" prefWidth="286.0">
                             <children>
                                 <Label fx:id="lbCliente" graphicTextGap="10.0" prefHeight="25.0" prefWidth="135.0"
                                        styleClass="texto"
@@ -47,7 +47,7 @@
                                     </VBox.margin>
                                 </Label>
                                 <JFXButton fx:id="btClientes" alignment="BASELINE_LEFT" focusTraversable="false"
-                                           graphicTextGap="25.0"  prefHeight="44.0"
+                                           graphicTextGap="25.0" prefHeight="44.0"
                                            prefWidth="321.0" styleClass="bt-menu"
                                            stylesheets="@../../../../../HVendas/src/main/resources/assets/css/global-escuro.css"
                                            text="Listar todos" textFill="WHITE">
@@ -86,7 +86,7 @@
                                     </VBox.margin>
                                 </Label>
                                 <JFXButton fx:id="btComprar" alignment="BASELINE_LEFT" focusTraversable="false"
-                                           graphicTextGap="25.0"  prefHeight="44.0"
+                                           graphicTextGap="25.0" prefHeight="44.0"
                                            prefWidth="321.0" styleClass="bt-menu"
                                            stylesheets="@../../../../../HVendas/src/main/resources/assets/css/global-escuro.css"
                                            text="Histórico" textFill="WHITE">
@@ -138,7 +138,7 @@
                                     </VBox.margin>
                                 </Label>
                                 <JFXButton fx:id="btEstoque" alignment="BASELINE_LEFT" focusTraversable="false"
-                                           graphicTextGap="25.0"  prefHeight="44.0"
+                                           graphicTextGap="25.0" prefHeight="44.0"
                                            prefWidth="321.0" styleClass="bt-menu"
                                            stylesheets="@../../../../../HVendas/src/main/resources/assets/css/global-escuro.css"
                                            text="Estoque" textFill="WHITE">

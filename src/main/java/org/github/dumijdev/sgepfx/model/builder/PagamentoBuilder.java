@@ -12,11 +12,11 @@ public class PagamentoBuilder {
     private LocalDateTime dataDePagamento;
     private BigDecimal valorPago;
     private Aluno aluno;
-    
+
     private PagamentoBuilder() {
-        
+
     }
-    
+
     public static PagamentoBuilder novaInstancia() {
         return new PagamentoBuilder();
     }

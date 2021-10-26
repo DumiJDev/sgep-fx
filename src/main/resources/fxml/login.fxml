@@ -1,85 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXCheckBox?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import java.net.URL?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.effect.InnerShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" id="AnchorPane" prefHeight="470.0" prefWidth="650.0"
-            styleClass="bg-primary" stylesheets="@../styles/bootstrapfx.css"
-            xmlns="http://javafx.com/javafx/11.0.1"
-            fx:controller="org.github.dumijdev.sgepfx.controller.LoginController">
+
+<AnchorPane id="AnchorPane" prefHeight="470.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.github.dumijdev.sgepfx.controller.LoginController">
     <children>
-        <JFXTextField fx:id="tfLoginUsuario" focusColor="#0e73e5" labelFloat="true" layoutX="204.0" layoutY="186.0"
-                      prefHeight="25.0" prefWidth="242.0" promptText="Login" styleClass="texto-principal"
-                      stylesheets="@../../../../../HVendas/src/main/resources/assets/css/global.css"
-                      unFocusColor="WHITE" AnchorPane.bottomAnchor="259.0" AnchorPane.leftAnchor="204.0"
-                      AnchorPane.rightAnchor="204.0"/>
-        <JFXCheckBox fx:id="cbManterAtivo" checkedColor="#0e73e5" layoutX="204.0" layoutY="301.0" prefHeight="25.0"
-                     prefWidth="96.0" selected="true" text="Lembra-me" textFill="WHITE" wrapText="true"
-                     AnchorPane.bottomAnchor="145.0" AnchorPane.leftAnchor="204.0" AnchorPane.rightAnchor="350.0"/>
-        <JFXButton fx:id="btLogin" buttonType="RAISED" layoutX="326.0" layoutY="297.0" prefHeight="34.0"
-                   prefWidth="123.0" styleClass="bt-login"
-                   stylesheets="@../../../../../HVendas/src/main/resources/assets/css/global-escuro.css" text="Entrar"
-                   textFill="#0e73e5" AnchorPane.bottomAnchor="140.0" AnchorPane.leftAnchor="326.0"
-                   AnchorPane.rightAnchor="201.0">
+        <JFXTextField fx:id="tfLoginUsuario" focusColor="#0e73e5" labelFloat="true" layoutX="204.0" layoutY="186.0" prefHeight="25.0" prefWidth="242.0" promptText="Login" unFocusColor="WHITE" AnchorPane.bottomAnchor="259.0" AnchorPane.leftAnchor="204.0" AnchorPane.rightAnchor="204.0" />
+        <JFXCheckBox fx:id="cbManterAtivo" checkedColor="#0e73e5" layoutX="204.0" layoutY="301.0" prefHeight="25.0" prefWidth="96.0" selected="true" text="Lembra-me" textFill="WHITE" wrapText="true" AnchorPane.bottomAnchor="145.0" AnchorPane.leftAnchor="204.0" AnchorPane.rightAnchor="350.0" />
+        <JFXButton fx:id="btLogin" buttonType="RAISED" layoutX="326.0" layoutY="297.0" onAction="#handleLogin" prefHeight="34.0" prefWidth="123.0" styleClass="bg-primary" text="Entrar" textFill="#0e73e5" AnchorPane.bottomAnchor="140.0" AnchorPane.leftAnchor="326.0" AnchorPane.rightAnchor="201.0">
             <opaqueInsets>
-                <Insets bottom="15.0" left="15.0" right="15.0" top="15.0"/>
+                <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
             </opaqueInsets>
             <font>
-                <Font name="System Bold" size="14.0"/>
+                <Font name="System Bold" size="14.0" />
             </font>
             <cursor>
-                <Cursor fx:constant="HAND"/>
+                <Cursor fx:constant="HAND" />
             </cursor>
         </JFXButton>
-        <JFXButton fx:id="btEsqueceu" layoutX="240.0" layoutY="371.0" prefHeight="25.0" prefWidth="171.0"
-                   ripplerFill="#3e3e46" text="Esqueceu a Palavra-passe?" textFill="WHITE" underline="true"
-                   AnchorPane.bottomAnchor="70.0" AnchorPane.leftAnchor="240.0" AnchorPane.rightAnchor="240.0"/>
-        <ImageView fitHeight="34.0" fitWidth="45.0" layoutX="147.0" layoutY="176.0" pickOnBounds="true"
-                   preserveRatio="true" AnchorPane.bottomAnchor="260.0" AnchorPane.leftAnchor="147.0">
+        <JFXButton fx:id="btEsqueceu" layoutX="240.0" layoutY="371.0" onAction="#handleEsqueceu" prefHeight="25.0" prefWidth="171.0" ripplerFill="#3e3e46" text="Esqueceu a Palavra-passe?" textFill="WHITE" underline="true" AnchorPane.bottomAnchor="70.0" AnchorPane.leftAnchor="240.0" AnchorPane.rightAnchor="240.0" />
+        <ImageView fitHeight="34.0" fitWidth="45.0" layoutX="147.0" layoutY="176.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="260.0" AnchorPane.leftAnchor="147.0">
             <image>
-                <Image url="@../../../../../HVendas/src/main/resources/assets/images/user.png"/>
+                <Image url="@../images/user.png" />
             </image>
         </ImageView>
-        <ImageView fitHeight="34.0" fitWidth="36.0" layoutX="153.0" layoutY="240.0" pickOnBounds="true"
-                   preserveRatio="true" AnchorPane.bottomAnchor="196.0" AnchorPane.leftAnchor="153.0">
+        <ImageView fitHeight="34.0" fitWidth="36.0" layoutX="153.0" layoutY="240.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="196.0" AnchorPane.leftAnchor="153.0">
             <image>
-                <Image url="@../../../../../HVendas/src/main/resources/assets/images/Key.png"/>
+                <Image url="@../images/Key.png" />
             </image>
         </ImageView>
         <AnchorPane layoutX="229.0" layoutY="46.0" prefHeight="82.0" prefWidth="220.0">
             <children>
-                <Label alignment="CENTER" layoutX="109.0" layoutY="6.0" prefHeight="71.0" prefWidth="109.0"
-                       style="-fx-background-color: #fff; -fx-background-radius: 15px;" text="APP"
-                       textAlignment="CENTER" textFill="#0e73e5" AnchorPane.topAnchor="6.0">
+                <Label alignment="CENTER" layoutX="109.0" layoutY="6.0" prefHeight="71.0" prefWidth="109.0" style="-fx-background-color: #fff; -fx-background-radius: 15px;" text="APP" textAlignment="CENTER" textFill="#0e73e5" AnchorPane.topAnchor="6.0">
                     <font>
-                        <Font size="49.0"/>
+                        <Font size="49.0" />
                     </font>
                     <effect>
-                        <InnerShadow/>
+                        <InnerShadow />
                     </effect>
                 </Label>
-                <Label alignment="CENTER" layoutY="6.0" prefHeight="71.0" prefWidth="116.0"
-                       style="-fx-background-color: #0e73e5; -fx-background-radius: 15px;" text="SGE"
-                       textAlignment="CENTER" textFill="WHITE" AnchorPane.topAnchor="6.0">
+                <Label alignment="CENTER" layoutY="6.0" prefHeight="71.0" prefWidth="116.0" style="-fx-background-color: #0e73e5; -fx-background-radius: 15px;" text="SGE" textAlignment="CENTER" textFill="WHITE" AnchorPane.topAnchor="6.0">
                     <font>
-                        <Font size="49.0"/>
+                        <Font size="49.0" />
                     </font>
                     <effect>
-                        <InnerShadow/>
+                        <InnerShadow />
                     </effect>
                 </Label>
             </children>
         </AnchorPane>
-        <JFXPasswordField fx:id="pfPalavraPasseUsuario" focusColor="#0e73e5" labelFloat="true" layoutX="204.0"
-                          layoutY="244.0" prefHeight="25.0" prefWidth="242.0" promptText="Palavra-passe"
-                          styleClass="texto-principal"
-                          stylesheets="@../../../../../HVendas/src/main/resources/assets/css/global.css"
-                          unFocusColor="WHITE"/>
+        <JFXPasswordField fx:id="pfPalavraPasseUsuario" focusColor="#0e73e5" labelFloat="true" layoutX="204.0" layoutY="244.0" prefHeight="25.0" prefWidth="242.0" promptText="Palavra-passe" unFocusColor="WHITE" />
     </children>
+    <stylesheets>
+        <URL value="@../styles/bootstrapfx.css" />
+        <URL value="@../styles/global.css" />
+    </stylesheets>
 </AnchorPane>

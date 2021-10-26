@@ -20,7 +20,7 @@ import org.github.dumijdev.sgepfx.model.builder.AlunoBuilder;
 import org.github.dumijdev.sgepfx.model.property.AlunoProperty;
 import org.github.dumijdev.sgepfx.repository.AlunoRepository;
 import org.github.dumijdev.sgepfx.util.Converte;
-import org.github.dumijdev.sgepfx.util.Dialog;
+import org.github.dumijdev.sgepfx.util.javafx.Dialog;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
@@ -56,8 +56,8 @@ public class AlunoController implements Initializable {
     private TableColumn<AlunoProperty, String> tcPagamento; // Value injected by FXMLLoader
     @FXML // fx:id="tcDataDeInscricao"
     private TableColumn<AlunoProperty, String> tcDataDeInscricao; // Value injected by FXMLLoader
-    @FXML // fx:id="jtfNomeProprio"
-    private JFXTextField jtfNomeProprio; // Value injected by FXMLLoader
+    @FXML // fx:id="jtfnome"
+    private JFXTextField jtfnome; // Value injected by FXMLLoader
     @FXML // fx:id="jtfNomeFamilia"
     private JFXTextField jtfNomeFamilia; // Value injected by FXMLLoader
     @FXML // fx:id="jtfNomePai"
@@ -74,7 +74,7 @@ public class AlunoController implements Initializable {
     //Novo-aluno fxml
     @FXML
     void handleRegistrar(ActionEvent event) {
-        var valido = !(jtfNomeProprio.getText().isEmpty() || jtfNomeProprio.getText().isBlank())
+        var valido = !(jtfnome.getText().isEmpty() || jtfnome.getText().isBlank())
                 && !(jtfNomeFamilia.getText().isEmpty() || jtfNomeFamilia.getText().isBlank())
                 && !(jtfNomePai.getText().isEmpty() || jtfNomePai.getText().isBlank())
                 && !(jtfNomeMae.getText().isEmpty() || jtfNomeMae.getText().isBlank())
@@ -88,16 +88,14 @@ public class AlunoController implements Initializable {
                     .comAnoDaInscricao(LocalDate.now())
                     .comBi(jtfBI.getText())
                     .comDataDeNascimento(jdpNasc.getValue())
-                    .comNomeProprio(jtfNomeProprio.getText())
+                    .comNome(jtfnome.getText())
                     .comNomeDoPai(jtfNomePai.getText())
                     .comNomeDaMae(jtfNomeMae.getText())
-                    .comNomeDeFamilia(jtfNomeFamilia.getText())
                     .constroi());
 
             var clicouOk = Dialog.informacao("Novo aluno",
-                    String.format("Aluno %s %s adicionado com sucesso!",
-                            aluno.getNomeProprio(),
-                            aluno.getNomeDeFamilia()));
+                    String.format("Aluno %s adicionado com sucesso!",
+                            aluno.getNome()));
             if (clicouOk) {
                 s1.close();
                 atualizaTabela();

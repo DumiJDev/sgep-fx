@@ -1,7 +1,6 @@
 package org.github.dumijdev.sgepfx.controller;
 
 import com.jfoenix.controls.JFXButton;
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -10,7 +9,13 @@ import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import org.github.dumijdev.sgepfx.util.Dialog;
+import javafx.stage.Stage;
+import org.github.dumijdev.sgepfx.LoginApp;
+import org.github.dumijdev.sgepfx.SGEPFXAPP;
+import org.github.dumijdev.sgepfx.model.Acesso;
+import org.github.dumijdev.sgepfx.model.Usuario;
+import org.github.dumijdev.sgepfx.util.javafx.Dialog;
+import org.github.dumijdev.sgepfx.util.javafx.Render;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
@@ -22,51 +27,49 @@ import java.util.ResourceBundle;
 @Component
 public class MainController implements Initializable {
 
+    private static final Parent[] telas = new Parent[4];
+    private static Usuario u;
+    private final String[] s = new String[]{"/fxml/alunos.fxml", "/fxml/matricula.fxml", "/fxml/pagamento-container.fxml", "/fxml/usuario.fxml"};
     @FXML // fx:id="apMain"
     private AnchorPane apMain; // Value injected by FXMLLoader
-
     @FXML // fx:id="jbtAluno"
     private JFXButton jbtAluno; // Value injected by FXMLLoader
-
     @FXML // fx:id="jbtMatricula"
     private JFXButton jbtMatricula; // Value injected by FXMLLoader
-
     @FXML // fx:id="jbtPagamento"
     private JFXButton jbtPagamento; // Value injected by FXMLLoader
-
     @FXML // fx:id="jbtUsuario"
     private JFXButton jbtUsuario; // Value injected by FXMLLoader
-
     @FXML // fx:id="apContainer"
     private AnchorPane apContainer; // Value injected by FXMLLoader
-
     @FXML // fx:id="ivLogo"
     private ImageView ivLogo; // Value injected by FXMLLoader
-
     @FXML // fx:id="lbNomeDaInstituicao"
     private Label lbNomeDaInstituicao; // Value injected by FXMLLoader
-
     @FXML // fx:id="jbtDefinicoes"
     private JFXButton jbtDefinicoes; // Value injected by FXMLLoader
-
     @FXML // fx:id="jbtLogout"
     private JFXButton jbtLogout; // Value injected by FXMLLoader
 
+    public static void setU(Usuario u) {
+        MainController.u = u;
+    }
 
     @FXML
     void handleLogout(ActionEvent event) {
         redesenhaMenu(jbtLogout, listaMenu(jbtLogout));
-        Platform.exit();
+        SGEPFXAPP.getLocalStage().close();
+        try {
+            LoginApp.getLocalStage().show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
     void handleAluno(ActionEvent event) {
         redesenhaMenu(jbtAluno, listaMenu(jbtAluno));
-        try {
-            telaAtual(FXMLLoader.load(getClass().getResource("/fxml/alunos.fxml")));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        telaAtual(telas[0]);
     }
 
     @FXML
@@ -77,26 +80,29 @@ public class MainController implements Initializable {
     @FXML
     void handleMatricula(ActionEvent event) {
         redesenhaMenu(jbtMatricula, listaMenu(jbtMatricula));
-        try {
-            telaAtual(FXMLLoader.load(getClass().getResource("/fxml/matricula.fxml")));
-        } catch (IOException e) {
-            Dialog.erro("Erro", e.getMessage());
-        }
+        telaAtual(telas[1]);
     }
 
     @FXML
     void handlePagamento(ActionEvent event) {
         redesenhaMenu(jbtPagamento, listaMenu(jbtPagamento));
-        try {
-            telaAtual(FXMLLoader.load(getClass().getResource("/fxml/pagamento-container.fxml")));
-        } catch (IOException e) {
-            Dialog.erro("Erro", e.getMessage());
-        }
+        telaAtual(telas[2]);
     }
 
     @FXML
     void handleUsuario(ActionEvent event) {
         redesenhaMenu(jbtUsuario, listaMenu(jbtUsuario));
+        if (u != null) {
+            if (Acesso.ADMIN.getAcesso().equals(u.getAcesso().getAcesso()))
+                telaAtual(telas[3]);
+            else {
+                Render.setP("/fxml/usuario-no-admin.fxml");
+                Render.setS1(new Stage());
+                Render.setTitle("Usuário");
+                Render.setResizable(false);
+                Render.renderFX();
+            }
+        }
     }
 
     /**
@@ -109,7 +115,17 @@ public class MainController implements Initializable {
      */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        try {
+            for (int i = 0; i < s.length; i++) {
+                telas[i] = FXMLLoader.load(getClass().getResource(s[i]));
+            }
+        } catch (IOException ex) {
+            Dialog.erro("Erro", ex.getMessage());
+            ex.printStackTrace();
+        }
 
+        if (u != null)
+            jbtLogout.setText(String.format("Sair(%s)", u.getLogin()));
     }
 
     private void redesenhaMenu(JFXButton clicado, List<JFXButton> outros) {

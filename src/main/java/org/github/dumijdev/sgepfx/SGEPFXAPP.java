@@ -1,44 +1,58 @@
 package org.github.dumijdev.sgepfx;
 
 import javafx.application.Application;
-import javafx.application.HostServices;
-import javafx.application.Platform;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.stage.Stage;
-import org.github.dumijdev.sgepfx.pool.StageReadyEvent;
-import org.springframework.boot.builder.SpringApplicationBuilder;
-import org.springframework.context.ApplicationContextInitializer;
-import org.springframework.context.ConfigurableApplicationContext;
-import org.springframework.context.support.GenericApplicationContext;
+
+import java.io.IOException;
 
 /**
  * @author Dumilde Paulo
  */
 public class SGEPFXAPP extends Application {
 
-    private static Stage stageLocal;
-    private ConfigurableApplicationContext context;
+    private static Stage localStage;
 
-    @Override
-    public void init() throws Exception {
-        ApplicationContextInitializer<GenericApplicationContext> initializer = ac -> {
-            ac.registerBean(Application.class, () -> this);
-            ac.registerBean(Application.Parameters.class, this::getParameters);
-            ac.registerBean(HostServices.class, this::getHostServices);
-        };
-
-        this.context = new SpringApplicationBuilder().sources(SGESpringFX.class)
-                .initializers(initializer).run(getParameters().getRaw().toArray(new String[0]));
+    public static Stage getLocalStage() {
+        return localStage;
     }
 
-    @Override
-    public void start(Stage stage) throws Exception {
-        this.context.publishEvent(new StageReadyEvent(stage));
+    public static void main(String[] args) {
+        launch(args);
     }
 
+    /**
+     * The main entry point for all JavaFX applications.
+     * The start method is called after the init method has returned,
+     * and after the system is ready for the application to begin running.
+     *
+     * <p>
+     * NOTE: This method is called on the JavaFX Application Thread.
+     * </p>
+     *
+     * @param stage the primary stage for this application, onto which
+     *              the application scene can be set.
+     *              Applications may create other stages, if needed, but they will not be
+     *              primary stages.
+     */
     @Override
-    public void stop() throws Exception {
-        this.context.close();
-        Platform.exit();
+    public void start(Stage stage) {
+        SGEPFXAPP.localStage = stage;
+        renderFX();
     }
 
+    private void renderFX() {
+        try {
+            var p = (Parent) FXMLLoader.load(getClass().getResource("/fxml/main2.fxml"));
+            Scene s = new Scene(p);
+            localStage.setScene(s);
+            localStage.setTitle("SgeApp");
+            localStage.setResizable(false);
+            localStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
