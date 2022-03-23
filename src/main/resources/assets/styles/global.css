@@ -1,0 +1,72 @@
+.cor-principal {
+    -fx-background-color:  rgba(10, 10, 100, .1)
+}
+
+.cor-secundaria {
+     -fx-background-color:  rgba(200, 200, 200, .4)
+}
+
+.fundo-principal {
+    -fx-background-color: linear-gradient(from 0% 0% to
+    100% 100%, rgb(10, 10, 80) 0%, silver 100%);
+}
+
+.bt-principal {
+    -fx-background-color: rgba(10, 10, 100, .1);
+    -fx-text-fill: #fff
+}
+
+.bt-secundario {
+    -fx-background-color: rgba(200, 200, 200, .1);
+    -fx-text-fill: #fff
+}
+
+.bt-sucesso {
+    -fx-background-color: rgba(100, 200, 100, .8);
+    -fx-text-fill: #fff
+}
+
+.text-field, .combo-box, .label, .radio-button, .list-view {
+    -fx-background-color: transparent;
+    -fx-prompt-text-fill: white;
+    -jfx-focus-color: white;
+    -jfx-unfocus-color: white;
+    -jfx-selected-color: white;
+    -fx-text-fill: white
+}
+
+.atualiza {
+    -fx-image: url('../images/refresh.png');
+}
+
+.column-header {
+    -fx-border-width: 0 0 1 0;
+    -fx-border-color: #fafafa;
+    -fx-background-color: transparent
+}
+
+.column-header .label {
+    -fx-text-fill: #fff
+}
+
+.column-header-background {
+    -fx-background-color: transparent
+}
+
+.table-view {
+    -fx-background-color: transparent
+}
+
+.table-view .row-selection {
+    -fx-text-fill: #fff;
+    -fx-background-color: #fafafa
+}
+
+.table-view .row-selection:selected {
+    -fx-text-fill: #fff;
+    -fx-background-color: rgba(200, 200, 200, .4)
+}
+
+.column-overlay {
+    -fx-background-color: transparent
+}

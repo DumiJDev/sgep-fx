@@ -1,0 +1,31 @@
+Manifest-Version: 1.0
+Main-Class: org.github.dumijdev.sgepfx.Launcher
+Class-Path: sqlite-jdbc-3.34.0.jar aspectjweaver-1.9.6.jar jandex-2.1.3.
+ Final.jar jaxb-runtime-2.3.3.jar jakarta.annotation-api-1.3.5.jar jboss
+ -logging-3.4.1.Final.jar slf4j-api-1.7.30.jar jakarta.activation-1.2.2.
+ jar jakarta.persistence-api-2.2.3.jar javafx-base-11.0.1.jar javafx-con
+ trols-11.0.1-win.jar jakarta.transaction-api-1.3.3.jar javafx-base-11.0
+ .1-win.jar javafx-swt.jar javafx.web.jar javafx.base.jar javafx.fxml.ja
+ r javafx.media.jar javafx.swing.jar javafx.controls.jar javafx.graphics
+ .jar spring-data-commons-2.3.4.RELEASE.jar mysql-connector-java-8.0.21.
+ jar log4j-api-2.13.3.jar spring-orm-5.2.9.RELEASE.jar spring-boot-confi
+ guration-processor-2.3.4.RELEASE.jar log4j-to-slf4j-2.13.3.jar lombok-1
+ .18.12.jar spring-jdbc-5.2.9.RELEASE.jar spring-expression-5.2.9.RELEAS
+ E.jar spring-boot-starter-data-jpa-2.3.4.RELEASE.jar spring-boot-starte
+ r-aop-2.3.4.RELEASE.jar spring-tx-5.2.9.RELEASE.jar byte-buddy-1.10.14.
+ jar spring-boot-2.3.4.RELEASE.jar bootstrapfx-core-0.4.0.jar antlr-2.7.
+ 7.jar javafx-fxml-11.0.1-win.jar jfoenix-9.0.10.jar javafx-fxml-11.0.1.
+ jar classmate-1.5.1.jar snakeyaml-1.26.jar javafx-graphics-11.0.1-win.j
+ ar hibernate-commons-annotations-5.1.0.Final.jar HikariCP-3.4.5.jar spr
+ ing-core-5.2.9.RELEASE.jar jul-to-slf4j-1.7.30.jar dom4j-2.1.3.jar java
+ fx-graphics-11.0.1.jar logback-classic-1.2.3.jar spring-boot-starter-lo
+ gging-2.3.4.RELEASE.jar hibernate-core-5.4.21.Final.jar spring-context-
+ support-5.2.9.RELEASE.jar javassist-3.24.0-GA.jar javafx-controls-11.0.
+ 1.jar spring-boot-starter-jdbc-2.3.4.RELEASE.jar spring-data-jpa-2.3.4.
+ RELEASE.jar txw2-2.3.3.jar jakarta.xml.bind-api-2.3.3.jar spring-aop-5.
+ 2.9.RELEASE.jar spring-aspects-5.2.9.RELEASE.jar spring-boot-starter-ca
+ che-2.3.4.RELEASE.jar spring-boot-autoconfigure-2.3.4.RELEASE.jar sprin
+ g-beans-5.2.9.RELEASE.jar spring-jcl-5.2.9.RELEASE.jar spring-context-5
+ .2.9.RELEASE.jar logback-core-1.2.3.jar istack-commons-runtime-3.0.11.j
+ ar spring-boot-starter-2.3.4.RELEASE.jar
+
